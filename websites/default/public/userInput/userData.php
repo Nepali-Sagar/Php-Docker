@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Array</title>
+    <title>DIsplay Data</title>
     <style>
         body {
             background-color: #161616;
@@ -16,19 +16,11 @@
 
 <body>
 
-    <h1>Array</h1>
-
     <?php
+    $userName = $_GET['name'];
+    $userAge = $_GET['age'];
 
-    $fruits = ['apple', 'banana', 'orange'];
-
-    for ($i = 0; $i < count($fruits); $i++) {
-        echo '<p>' . $fruits[$i] . '</p>';
-    }
-
-    foreach($fruits as $key => $val){
-        echo "Key: $key, value: $val <br>"; 
-    }
+    echo $userName . ', ' . $userAge;
 
 
 
