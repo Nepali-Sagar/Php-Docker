@@ -30,6 +30,23 @@
         echo "Key: $key, value: $val <br>"; 
     }
 
+    echo '<br>';
+
+    $num = [1,2,3];
+
+    $totalSum = sum($num);
+    echo 'Total Sum = '.$totalSum;
+
+    function sum($num){
+
+    $result = 0;
+
+        foreach($num as $key => $val){
+            $result = $result + $val;
+        }
+        return $result;
+    }
+
 
 
     ?>
