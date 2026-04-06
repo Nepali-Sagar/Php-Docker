@@ -4,68 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Form</title>
-    <style>
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-        }
-
-        body {
-            background-color: #161616;
-            color: #fff;
-            font-size: 1.5em;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 50px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            border: 1px solid white;
-            width: 25vw;
-        }
-
-        form input {
-            padding: 10px;
-            font-size: 1.1em;
-        }
-    </style>
 </head>
 
 <body>
 
     <form action="index.php" method="GET">
+        <fieldset>
 
-        <input type="text" name="myName" placeholder="name">
-        <input type="number" name="myAge" placeholder="age">
-        <input type="text" name="myAddress" placeholder="address">
-        <input type="number" name="myContact" placeholder="9765123456">
-        <input type="email" name="myGmail" placeholder="abc@gmail.com">
+            <legend>Contact Information</legend>
+            <input type="text" name="myName" placeholder="name">
+            <input type="number" name="myAge" placeholder="age">
+            <input type="text" name="myAddress" placeholder="address">
+            <input type="number" name="myContact" placeholder="9765123456">
+            <input type="email" name="myGmail" placeholder="abc@gmail.com">
 
-        <input type="submit" value="Submit">
+            <input type="submit" value="Submit" name="submitBtn">
 
-
+        </fieldset>
     </form>
 
 
-    <?php
+    <div class="details">
+        <?php
+        if (isset($_GET['submitBtn'])) {
 
+            if (
+                !empty($_GET["myName"]) &&
+                !empty($_GET["myAge"]) &&
+                !empty($_GET["myAddress"]) &&
+                !empty($_GET["myContact"]) &&
+                !empty($_GET["myGmail"])
+            ) {
+                echo "<p> Name: " . $_GET["myName"] . "<p>";
+                echo "<p> Age: " . $_GET["myAge"] . "<p>";
+                echo "<p> Address: " . $_GET["myAddress"] . "<p>";
+                echo "<p> Conatct: " . $_GET["myContact"] . "<p>";
+                echo "<p> Email: " . $_GET["myGmail"] . "<p>";
+            } else {
+                echo "<p> Form submitted but fields are empty. </p>";
+            }
+        }
+        ?>
 
-    if (isset($_GET["myName"]) || isset($_GET["myAge"]) || isset($_GET["myAddress"]) || isset($_GET["myContact"]) || isset($_GET["myGmail"])) {
-        echo "Your Name: " . $_GET["myName"] . "<br>";
-        echo "Your Age: " . $_GET["myAge"] . "<br>";
-        echo "Your Address: " . $_GET["myAddress"] . "<br>";
-        echo "Your Conatct: " . $_GET["myContact"] . "<br>";
-        echo "Your Email: " . $_GET["myGmail"] . "<br>";
-    }
+    </div>
 
-    ?>
 </body>
 
 </html>
