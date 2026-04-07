@@ -79,3 +79,21 @@ fieldset input:last-child:hover {
 .details p {
   font-size: 1.3em;
 }
+
+
+.genderBox{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin: 0px 10px;
+}
+
+.genderBox input:last-child{
+  margin-bottom: 0;
+}
+
+select{
+  font-size: 1.1em;
+  padding: 10px;
+  margin: 10px;
+}
